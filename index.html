@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Principles of Financial Accounting – Course Checklist (TJC Summer 2026)</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /*
+    Brand palette:
+    Violet  #262D68  — primary
+    Blue    #4691CE  — secondary
+    Green   #0A713A  — tertiary
+    Orange/Yellow    — background tints only, with #262D68 text
+    Font: Arial (dyslexia-friendly system font)
+    Minimum font size: 1rem = 16px = 12pt at 96dpi
+  */
+  :root {
+    --brand-violet:    #262D68;
+    --brand-violet-lt: #eceef6;
+    --brand-blue:      #4691CE;
+    --brand-blue-lt:   #deeef9;
+    --brand-green:     #0A713A;
+    --brand-green-lt:  #d6f0e3;
+    --brand-orange-lt: #fff0d6;
+    --brand-yellow-lt: #fafbd6;
+    --brand-gray-lt:   #f0f0f2;
+    --brand-gray-mid:  #6b6b78;
+    --text-primary:    #1a1a2e;
+    --text-secondary:  #3d3d52;
+    --bg-page:         #1e2452;
+    --bg-white:        #ffffff;
+    --border:          #c8cad8;
+    --border-light:    #e0e2ee;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --focus-ring: 0 0 0 3px #4691CE;
+    --font: Arial, Helvetica, sans-serif;
+  }
+
+  html { font-size: 16px; }
+
+  body {
+    font-family: var(--font);
+    background: var(--bg-page);
+    color: var(--text-primary);
+    line-height: 1.7;
+    padding: 2rem 1rem 4rem;
+    font-size: 1rem;
+  }
+
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    background: var(--brand-violet);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    font-size: 1rem;
+    font-family: var(--font);
+    text-decoration: none;
+    z-index: 9999;
+    transition: top 0.1s;
+  }
+  .skip-link:focus { top: 0; }
+
+  .page-wrap { max-width: 760px; margin: 0 auto; }
+
+  .page-header { margin-bottom: 1.75rem; }
+  .page-header h1 {
+    font-family: var(--font);
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+  }
+  .page-header .subtitle {
+    font-size: 1rem;
+    color: #c8cfe8;
+    font-style: italic;
+  }
+
+  .intro-note {
+    background: var(--brand-violet-lt);
+    border: 1.5px solid var(--brand-violet);
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+  .intro-note svg { flex-shrink: 0; margin-top: 3px; color: var(--brand-violet); }
+
+  .notice {
+    background: var(--brand-orange-lt);
+    border: 1.5px solid #f5c06a;
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    font-family: var(--font);
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+  .notice svg { flex-shrink: 0; margin-top: 3px; color: #b36800; }
+
+  .progress-wrap {
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.75rem;
+  }
+  .progress-meta { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
+  .progress-meta .prog-label { font-size: 1rem; color: var(--text-secondary); }
+  .progress-meta .prog-pct { font-size: 1rem; font-weight: 700; color: var(--brand-violet); }
+  .progress-track {
+    height: 12px;
+    background: var(--brand-violet-lt);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--brand-violet);
+    border-radius: 10px;
+    transition: width 0.35s ease;
+  }
+
+  .toolbar { display: flex; gap: 0.6rem; margin-bottom: 1.75rem; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-family: var(--font);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    border: 1.5px solid #8892b0;
+    background: var(--bg-white);
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  .btn:hover { background: var(--brand-gray-lt); border-color: var(--brand-gray-mid); }
+  .btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+  .btn-primary { background: #0A713A; color: #ffffff; border-color: #054a25; }
+  .btn-primary:hover { background: #054a25; border-color: #054a25; }
+
+  /* Week headers — rotate through violet/blue/green */
+  .week-hdr {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.65rem 0.9rem;
+    border-radius: var(--radius-md);
+    margin: 2rem 0 0.5rem;
+    font-family: var(--font);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .week-hdr .week-dates {
+    margin-left: auto;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  .wk-violet { background: var(--brand-violet-lt); color: var(--brand-violet); border-left: 4px solid var(--brand-violet); }
+  .wk-blue   { background: var(--brand-blue-lt);   color: #1a4f80;             border-left: 4px solid var(--brand-blue); }
+  .wk-green  { background: var(--brand-green-lt);  color: #054a25;             border-left: 4px solid var(--brand-green); }
+  .wk-exam   { background: var(--brand-orange-lt); color: var(--brand-violet); border-left: 4px solid #FF9F1C; }
+  .wk-final  { background: var(--brand-yellow-lt); color: var(--brand-violet); border-left: 4px solid #b8c000; }
+
+  /* Week card — contains all tasks for the week */
+  .week-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 0.9rem 1rem;
+    margin-bottom: 0.5rem;
+    transition: opacity 0.2s;
+  }
+  .week-card.completed { opacity: 0.52; }
+
+  /* Week title row with master checkbox */
+  .week-title-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 0.75rem;
+  }
+  .week-title-row input[type="checkbox"] {
+    width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px;
+    accent-color: var(--brand-violet); cursor: pointer;
+  }
+  .week-title-row input[type="checkbox"]:focus-visible { outline: 3px solid var(--brand-blue); outline-offset: 2px; }
+  .week-title-text { font-size: 1rem; font-weight: 700; color: var(--text-primary); line-height: 1.4; }
+  .week-card.completed .week-title-text { text-decoration: line-through; }
+
+  /* Task list */
+  .task-list { list-style: none; padding-left: 1.7rem; }
+  .task-list li { margin-bottom: 0.35rem; }
+  .task-list label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-family: var(--font);
+    color: var(--text-secondary);
+    cursor: pointer;
+    line-height: 1.6;
+  }
+  .task-list label.done { text-decoration: line-through; opacity: 0.6; }
+  .task-list input[type="checkbox"] {
+    width: 15px; height: 15px; flex-shrink: 0; margin-top: 3px;
+    accent-color: var(--brand-violet); cursor: pointer;
+  }
+  .task-list input[type="checkbox"]:focus-visible { outline: 3px solid var(--brand-blue); outline-offset: 2px; }
+
+  /* Due date tag inline with task */
+  .due {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 900;
+    text-decoration: underline;
+    color: #1a4f80;
+    background: var(--brand-blue-lt);
+    padding: 1px 8px;
+    border-radius: 12px;
+    margin-left: 4px;
+    white-space: nowrap;
+  }
+  .due-exam {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 900;
+    text-decoration: underline;
+    color: var(--brand-violet);
+    background: var(--brand-orange-lt);
+    padding: 1px 8px;
+    border-radius: 12px;
+    margin-left: 4px;
+    white-space: nowrap;
+  }
+
+  /* Section dividers within a week card */
+  .task-section-label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding-left: 1.7rem;
+    margin: 0.65rem 0 0.35rem;
+  }
+
+
+  /* ── Accordion ── */
+  .week-card-body {
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    max-height: 2000px;
+    opacity: 1;
+  }
+  .week-card.collapsed .week-card-body {
+    max-height: 0;
+    opacity: 0;
+  }
+  .week-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2px 4px;
+    margin-left: auto;
+    color: var(--brand-gray-mid);
+    display: flex;
+    align-items: center;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+    transition: color 0.15s;
+  }
+  .week-toggle:hover { color: var(--brand-violet); }
+  .week-toggle:focus-visible { outline: 3px solid var(--brand-blue); outline-offset: 2px; }
+  .week-toggle svg {
+    transition: transform 0.3s ease;
+  }
+  .week-card.collapsed .week-toggle svg {
+    transform: rotate(-90deg);
+  }
+  .week-title-row {
+    margin-bottom: 0;
+    padding-bottom: 0.75rem;
+  }
+  .week-card.collapsed .week-title-row {
+    padding-bottom: 0;
+  }
+
+  .final-notice {
+    margin-top: 2rem;
+    font-size: 1rem;
+    font-family: var(--font);
+    color: var(--text-secondary);
+    padding: 0.75rem 1rem;
+    border-left: 4px solid var(--brand-violet);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    background: var(--bg-white);
+  }
+  .final-notice strong { color: var(--text-primary); }
+
+  *:focus { outline: 3px solid var(--brand-blue); outline-offset: 2px; }
+  *:focus:not(:focus-visible) { outline: none; }
+
+  @media print {
+    body { background: white; padding: 0.5rem; font-size: 12pt; font-family: Arial, Helvetica, sans-serif; }
+    .toolbar, .notice, .skip-link { display: none !important; }
+    .progress-wrap { display: none; }
+    .week-card { break-inside: avoid; border: 1px solid #ccc; }
+    .week-hdr { break-after: avoid; font-size: 12pt; }
+    .page-header h1 { font-size: 16pt; color: #262D68; }
+    .page-header .subtitle { color: #3d3d52; }
+    .week-title-text, .task-list label, .final-notice { font-size: 12pt; }
+    .due, .due-exam { font-size: 12pt; border: 1px solid #ccc; }
+    a { text-decoration: none; color: inherit; }
+    .week-card.completed { opacity: 1; }
+    .week-card.completed .week-title-text { text-decoration: none; }
+    .task-list label.done { text-decoration: none; opacity: 1; }
+    .wk-violet, .wk-blue, .wk-green, .wk-exam, .wk-final { border-left-width: 4px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .intro-note { display: none; }
+  }
+
+  @media (max-width: 520px) {
+    .week-hdr .week-dates { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="page-wrap">
+
+  <header class="page-header">
+    <h1>Principles of Financial Accounting</h1>
+    <p class="subtitle">Student Checklist &ndash; TJC Summer 2026 (10-Week)</p>
+  </header>
+
+  <div class="intro-note" role="note" aria-label="Course navigation note">
+    <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+    </svg>
+    <div>
+      Please refer to the corresponding weekly module in Canvas and complete all items in the order they appear, from top to bottom. Modules are intentionally organized to support your learning progress throughout the course.
+    </div>
+  </div>
+
+  <div class="notice" role="note" aria-label="Important note about saving your progress">
+    <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+    </svg>
+    <div>
+      <strong>Your progress is saved automatically</strong> in this browser on this device.
+      If you switch browsers, clear your browser data, or open this page on a different device, your checkmarks will not carry over.
+      Use the same browser on the same device each time to keep your progress.
+    </div>
+  </div>
+
+  <div class="progress-wrap" aria-label="Overall progress">
+    <div class="progress-meta">
+      <span class="prog-label" id="prog-label" aria-live="polite">0 of 10 weeks checked</span>
+      <span class="prog-pct" id="prog-pct" aria-hidden="true">0%</span>
+    </div>
+    <div class="progress-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-labelledby="prog-label" id="prog-bar">
+      <div class="progress-fill" id="prog-fill" style="width:0%"></div>
+    </div>
+  </div>
+
+  <div class="toolbar" role="group" aria-label="Checklist actions">
+    <button class="btn btn-primary" onclick="window.print()" aria-label="Print this checklist">
+      <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      Print checklist
+    </button>
+    <button class="btn" onclick="resetAll()" aria-label="Reset all checkboxes to unchecked">
+      <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+      Reset all
+    </button>
+  </div>
+
+  <main id="main-content">
+
+    <!-- WEEK 1 -->
+    <div class="week-hdr wk-violet" role="heading" aria-level="2">
+      <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Week 1
+      <span class="week-dates">June 1&ndash;7</span>
+    </div>
+    <div class="week-card" id="card-w1" data-id="w1">
+      <div class="week-title-row">
+        <input type="checkbox" id="chk-w1" class="week-check" aria-label="Mark Week 1 as complete">
+        <label for="chk-w1" class="week-title-text">Week 1 &ndash; Course Orientation &amp; Chapter 1</label>
+        <button class="week-toggle" aria-label="Toggle week 1 tasks" aria-expanded="true" data-week="w1">
+          <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="week-card-body">
+      <ul class="task-list" aria-label="Week 1 tasks">
+        <li><label><input type="checkbox" class="task-check" data-parent="w1" aria-label="Complete Course HQ and Start Here Module"> Complete Course HQ / Start Here Module</label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w1" aria-label="Complete Discipline Literacy Module and EY Arc Assignments"> Complete Discipline Literacy Module &amp; EY Arc Assignments <span class="due">due 6/3</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w1" aria-label="Watch Chapter 1 lecture or read Chapter 1"> Watch Chapter 1 lecture or read Chapter 1</label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w1" aria-label="Complete Chapter 1 Concept Assignment"> Complete Chapter 1 Concept Assignment <span class="due">due 6/6</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w1" aria-label="Complete Chapter 1 Discussion"> Complete Chapter 1 Discussion <span class="due">due 6/6</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w1" aria-label="Complete Chapter 1 Chapter Assignment"> Complete Chapter 1 Chapter Assignment <span class="due">due 6/6</span></label></li>
+      </ul>
+      </div>
+    </div>
+
+    <!-- WEEK 2 -->
+    <div class="week-hdr wk-blue" role="heading" aria-level="2">
+      <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Week 2
+      <span class="week-dates">June 8&ndash;14</span>
+    </div>
+    <div class="week-card" id="card-w2" data-id="w2">
+      <div class="week-title-row">
+        <input type="checkbox" id="chk-w2" class="week-check" aria-label="Mark Week 2 as complete">
+        <label for="chk-w2" class="week-title-text">Week 2 &ndash; Chapters 2 &amp; 3 (Start)</label>
+        <button class="week-toggle" aria-label="Toggle week 2 tasks" aria-expanded="true" data-week="w2">
+          <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="week-card-body">
+      <div class="task-section-label">Chapter 2</div>
+      <ul class="task-list" aria-label="Week 2 Chapter 2 tasks">
+        <li><label><input type="checkbox" class="task-check" data-parent="w2" aria-label="Watch Chapter 2 lecture or read Chapter 2"> Watch Chapter 2 lecture or read Chapter 2</label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w2" aria-label="Complete Chapter 2 Concept Assignment"> Complete Chapter 2 Concept Assignment <span class="due">due 6/10</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w2" aria-label="Complete Chapter 2 Discussion"> Complete Chapter 2 Discussion <span class="due">due 6/10</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w2" aria-label="Complete Chapter 2 Chapter Assignment"> Complete Chapter 2 Chapter Assignment <span class="due">due 6/10</span></label></li>
+      </ul>
+      <div class="task-section-label">Chapter 3 (Start this week)</div>
+      <ul class="task-list" aria-label="Week 2 Chapter 3 start tasks">
+        <li><label><input type="checkbox" class="task-check" data-parent="w2" aria-label="Watch Chapter 3 lecture or read Chapter 3"> Watch Chapter 3 lecture or read Chapter 3</label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w2" aria-label="Start Chapter 3 Concept Assignment"> Start Chapter 3 Concept Assignment</label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w2" aria-label="Start Chapter 3 Discussion"> Start Chapter 3 Discussion</label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w2" aria-label="Start Chapter 3 Chapter Assignment"> Start Chapter 3 Chapter Assignment</label></li>
+      </ul>
+      </div>
+    </div>
+
+    <!-- WEEK 3 -->
+    <div class="week-hdr wk-exam" role="heading" aria-level="2">
+      <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Week 3
+      <span class="week-dates">June 15&ndash;21</span>
+    </div>
+    <div class="week-card" id="card-w3" data-id="w3">
+      <div class="week-title-row">
+        <input type="checkbox" id="chk-w3" class="week-check" aria-label="Mark Week 3 as complete">
+        <label for="chk-w3" class="week-title-text">Week 3 &ndash; Chapter 3 (Complete) &amp; Exam 1</label>
+        <button class="week-toggle" aria-label="Toggle week 3 tasks" aria-expanded="true" data-week="w3">
+          <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="week-card-body">
+      <div class="task-section-label">Chapter 3 (Complete)</div>
+      <ul class="task-list" aria-label="Week 3 Chapter 3 completion tasks">
+        <li><label><input type="checkbox" class="task-check" data-parent="w3" aria-label="Complete Chapter 3 Concept Assignment"> Complete Chapter 3 Concept Assignment <span class="due">due 6/17</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w3" aria-label="Complete Chapter 3 Discussion"> Complete Chapter 3 Discussion <span class="due">due 6/17</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w3" aria-label="Complete Chapter 3 Chapter Assignment"> Complete Chapter 3 Chapter Assignment <span class="due">due 6/17</span></label></li>
+      </ul>
+      <div class="task-section-label">Exam 1</div>
+      <ul class="task-list" aria-label="Week 3 Exam 1 tasks">
+        <li><label><input type="checkbox" class="task-check" data-parent="w3" aria-label="Complete Accounting Cycle 1"> Complete Accounting Cycle 1 <span class="due">due 6/20</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w3" aria-label="Complete Exam 1 Concept Review"> Complete Exam 1 Concept Review <span class="due">due 6/20</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w3" aria-label="Take Exam 1"> Take Exam 1 <span class="due-exam">open 6/18&ndash;6/21</span></label></li>
+      </ul>
+      </div>
+    </div>
+
+    <!-- WEEK 4 -->
+    <div class="week-hdr wk-green" role="heading" aria-level="2">
+      <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Week 4
+      <span class="week-dates">June 22&ndash;28</span>
+    </div>
+    <div class="week-card" id="card-w4" data-id="w4">
+      <div class="week-title-row">
+        <input type="checkbox" id="chk-w4" class="week-check" aria-label="Mark Week 4 as complete">
+        <label for="chk-w4" class="week-title-text">Week 4 &ndash; Chapters 4 &amp; 5</label>
+        <button class="week-toggle" aria-label="Toggle week 4 tasks" aria-expanded="true" data-week="w4">
+          <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="week-card-body">
+      <div class="task-section-label">Chapter 4</div>
+      <ul class="task-list" aria-label="Week 4 Chapter 4 tasks">
+        <li><label><input type="checkbox" class="task-check" data-parent="w4" aria-label="Watch Chapter 4 lecture or read Chapter 4"> Watch Chapter 4 lecture or read Chapter 4</label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w4" aria-label="Complete Chapter 4 Concept Assignment"> Complete Chapter 4 Concept Assignment <span class="due">due 6/24</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w4" aria-label="Complete Chapter 4 Discussion"> Complete Chapter 4 Discussion <span class="due">due 6/24</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w4" aria-label="Complete Chapter 4 Chapter Assignment"> Complete Chapter 4 Chapter Assignment <span class="due">due 6/24</span></label></li>
+      </ul>
+      <div class="task-section-label">Chapter 5</div>
+      <ul class="task-list" aria-label="Week 4 Chapter 5 tasks">
+        <li><label><input type="checkbox" class="task-check" data-parent="w4" aria-label="Watch Chapter 5 lecture or read Chapter 5"> Watch Chapter 5 lecture or read Chapter 5</label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w4" aria-label="Complete Chapter 5 Concept Assignment"> Complete Chapter 5 Concept Assignment <span class="due">due 6/27</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w4" aria-label="Complete Chapter 5 Discussion"> Complete Chapter 5 Discussion <span class="due">due 6/27</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w4" aria-label="Complete Chapter 5 Chapter Assignment"> Complete Chapter 5 Chapter Assignment <span class="due">due 6/27</span></label></li>
+      </ul>
+      </div>
+    </div>
+
+    <!-- WEEK 5 -->
+    <div class="week-hdr wk-violet" role="heading" aria-level="2">
+      <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Week 5
+      <span class="week-dates">June 29&ndash;July 5</span>
+    </div>
+    <div class="week-card" id="card-w5" data-id="w5">
+      <div class="week-title-row">
+        <input type="checkbox" id="chk-w5" class="week-check" aria-label="Mark Week 5 as complete">
+        <label for="chk-w5" class="week-title-text">Week 5 &ndash; Chapter 6</label>
+        <button class="week-toggle" aria-label="Toggle week 5 tasks" aria-expanded="true" data-week="w5">
+          <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="week-card-body">
+      <ul class="task-list" aria-label="Week 5 tasks">
+        <li><label><input type="checkbox" class="task-check" data-parent="w5" aria-label="Watch Chapter 6 lecture or read Chapter 6"> Watch Chapter 6 lecture or read Chapter 6</label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w5" aria-label="Complete Chapter 6 Concept Assignment"> Complete Chapter 6 Concept Assignment <span class="due">due 7/1</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w5" aria-label="Complete Chapter 6 Discussion"> Complete Chapter 6 Discussion <span class="due">due 7/1</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w5" aria-label="Complete Chapter 6 Chapter Assignment"> Complete Chapter 6 Chapter Assignment <span class="due">due 7/1</span></label></li>
+      </ul>
+      </div>
+    </div>
+
+    <!-- WEEK 6 -->
+    <div class="week-hdr wk-exam" role="heading" aria-level="2">
+      <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Week 6
+      <span class="week-dates">July 6&ndash;12</span>
+    </div>
+    <div class="week-card" id="card-w6" data-id="w6">
+      <div class="week-title-row">
+        <input type="checkbox" id="chk-w6" class="week-check" aria-label="Mark Week 6 as complete">
+        <label for="chk-w6" class="week-title-text">Week 6 &ndash; Chapter 7 &amp; Exam 2</label>
+        <button class="week-toggle" aria-label="Toggle week 6 tasks" aria-expanded="true" data-week="w6">
+          <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="week-card-body">
+      <div class="task-section-label">Chapter 7</div>
+      <ul class="task-list" aria-label="Week 6 Chapter 7 tasks">
+        <li><label><input type="checkbox" class="task-check" data-parent="w6" aria-label="Watch Chapter 7 lecture or read Chapter 7"> Watch Chapter 7 lecture or read Chapter 7</label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w6" aria-label="Complete Chapter 7 Concept Assignment"> Complete Chapter 7 Concept Assignment <span class="due">due 7/8</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w6" aria-label="Complete Chapter 7 Discussion"> Complete Chapter 7 Discussion <span class="due">due 7/8</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w6" aria-label="Complete Chapter 7 Chapter Assignment"> Complete Chapter 7 Chapter Assignment <span class="due">due 7/8</span></label></li>
+      </ul>
+      <div class="task-section-label">Exam 2</div>
+      <ul class="task-list" aria-label="Week 6 Exam 2 tasks">
+        <li><label><input type="checkbox" class="task-check" data-parent="w6" aria-label="Complete Accounting Cycles 2 and 3"> Complete Accounting Cycles 2 &amp; 3 <span class="due">due 7/11</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w6" aria-label="Complete Exam 2 Concept Review"> Complete Exam 2 Concept Review <span class="due">due 7/11</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w6" aria-label="Take Exam 2"> Take Exam 2 <span class="due-exam">open 7/9&ndash;7/12</span></label></li>
+      </ul>
+      </div>
+    </div>
+
+    <!-- WEEK 7 -->
+    <div class="week-hdr wk-blue" role="heading" aria-level="2">
+      <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Week 7
+      <span class="week-dates">July 13&ndash;19</span>
+    </div>
+    <div class="week-card" id="card-w7" data-id="w7">
+      <div class="week-title-row">
+        <input type="checkbox" id="chk-w7" class="week-check" aria-label="Mark Week 7 as complete">
+        <label for="chk-w7" class="week-title-text">Week 7 &ndash; Chapters 8 &amp; 9</label>
+        <button class="week-toggle" aria-label="Toggle week 7 tasks" aria-expanded="true" data-week="w7">
+          <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="week-card-body">
+      <div class="task-section-label">Chapter 8</div>
+      <ul class="task-list" aria-label="Week 7 Chapter 8 tasks">
+        <li><label><input type="checkbox" class="task-check" data-parent="w7" aria-label="Watch Chapter 8 lecture or read Chapter 8"> Watch Chapter 8 lecture or read Chapter 8</label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w7" aria-label="Complete Chapter 8 Concept Assignment"> Complete Chapter 8 Concept Assignment <span class="due">due 7/15</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w7" aria-label="Complete Chapter 8 Discussion"> Complete Chapter 8 Discussion <span class="due">due 7/15</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w7" aria-label="Complete Chapter 8 Chapter Assignment"> Complete Chapter 8 Chapter Assignment <span class="due">due 7/15</span></label></li>
+      </ul>
+      <div class="task-section-label">Chapter 9</div>
+      <ul class="task-list" aria-label="Week 7 Chapter 9 tasks">
+        <li><label><input type="checkbox" class="task-check" data-parent="w7" aria-label="Watch Chapter 9 lecture or read Chapter 9"> Watch Chapter 9 lecture or read Chapter 9</label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w7" aria-label="Complete Chapter 9 Concept Assignment"> Complete Chapter 9 Concept Assignment <span class="due">due 7/18</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w7" aria-label="Complete Chapter 9 Discussion"> Complete Chapter 9 Discussion <span class="due">due 7/18</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w7" aria-label="Complete Chapter 9 Chapter Assignment"> Complete Chapter 9 Chapter Assignment <span class="due">due 7/18</span></label></li>
+      </ul>
+      </div>
+    </div>
+
+    <!-- WEEK 8 -->
+    <div class="week-hdr wk-green" role="heading" aria-level="2">
+      <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Week 8
+      <span class="week-dates">July 20&ndash;26</span>
+    </div>
+    <div class="week-card" id="card-w8" data-id="w8">
+      <div class="week-title-row">
+        <input type="checkbox" id="chk-w8" class="week-check" aria-label="Mark Week 8 as complete">
+        <label for="chk-w8" class="week-title-text">Week 8 &ndash; Chapters 10 &amp; 11</label>
+        <button class="week-toggle" aria-label="Toggle week 8 tasks" aria-expanded="true" data-week="w8">
+          <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="week-card-body">
+      <div class="task-section-label">Chapter 10</div>
+      <ul class="task-list" aria-label="Week 8 Chapter 10 tasks">
+        <li><label><input type="checkbox" class="task-check" data-parent="w8" aria-label="Watch Chapter 10 lecture or read Chapter 10"> Watch Chapter 10 lecture or read Chapter 10</label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w8" aria-label="Complete Chapter 10 Concept Assignment"> Complete Chapter 10 Concept Assignment <span class="due">due 7/22</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w8" aria-label="Complete Chapter 10 Discussion"> Complete Chapter 10 Discussion <span class="due">due 7/22</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w8" aria-label="Complete Chapter 10 Chapter Assignment"> Complete Chapter 10 Chapter Assignment <span class="due">due 7/22</span></label></li>
+      </ul>
+      <div class="task-section-label">Chapter 11</div>
+      <ul class="task-list" aria-label="Week 8 Chapter 11 tasks">
+        <li><label><input type="checkbox" class="task-check" data-parent="w8" aria-label="Watch Chapter 11 lecture or read Chapter 11"> Watch Chapter 11 lecture or read Chapter 11</label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w8" aria-label="Complete Chapter 11 Concept Assignment"> Complete Chapter 11 Concept Assignment <span class="due">due 7/25</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w8" aria-label="Complete Chapter 11 Discussion"> Complete Chapter 11 Discussion <span class="due">due 7/25</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w8" aria-label="Complete Chapter 11 Chapter Assignment"> Complete Chapter 11 Chapter Assignment <span class="due">due 7/25</span></label></li>
+      </ul>
+      </div>
+    </div>
+
+    <!-- WEEK 9 -->
+    <div class="week-hdr wk-exam" role="heading" aria-level="2">
+      <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Week 9
+      <span class="week-dates">July 27&ndash;August 2</span>
+    </div>
+    <div class="week-card" id="card-w9" data-id="w9">
+      <div class="week-title-row">
+        <input type="checkbox" id="chk-w9" class="week-check" aria-label="Mark Week 9 as complete">
+        <label for="chk-w9" class="week-title-text">Week 9 &ndash; Exam 3 &amp; Chapter 12 (Start)</label>
+        <button class="week-toggle" aria-label="Toggle week 9 tasks" aria-expanded="true" data-week="w9">
+          <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="week-card-body">
+      <div class="task-section-label">Exam 3</div>
+      <ul class="task-list" aria-label="Week 9 Exam 3 tasks">
+        <li><label><input type="checkbox" class="task-check" data-parent="w9" aria-label="Complete Accounting Cycles 4 and 5"> Complete Accounting Cycles 4 &amp; 5 <span class="due">due 7/29</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w9" aria-label="Complete Exam 3 Concept Review"> Complete Exam 3 Concept Review <span class="due">due 7/29</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w9" aria-label="Take Exam 3"> Take Exam 3 <span class="due-exam">open 7/30&ndash;8/2</span></label></li>
+      </ul>
+      <div class="task-section-label">Chapter 12</div>
+      <ul class="task-list" aria-label="Week 9 Chapter 12 tasks">
+        <li><label><input type="checkbox" class="task-check" data-parent="w9" aria-label="Watch Chapter 12 lecture or read Chapter 12"> Watch Chapter 12 lecture or read Chapter 12</label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w9" aria-label="Complete Chapter 12 Chapter Assignment"> Complete Chapter 12 Chapter Assignment <span class="due">due 8/4</span></label></li>
+      </ul>
+      </div>
+    </div>
+
+    <!-- WEEK 10 -->
+    <div class="week-hdr wk-final" role="heading" aria-level="2">
+      <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Week 10
+      <span class="week-dates">August 3&ndash;7</span>
+    </div>
+    <div class="week-card" id="card-w10" data-id="w10">
+      <div class="week-title-row">
+        <input type="checkbox" id="chk-w10" class="week-check" aria-label="Mark Week 10 as complete">
+        <label for="chk-w10" class="week-title-text">Week 10 &ndash; Final Exam</label>
+        <button class="week-toggle" aria-label="Toggle week 10 tasks" aria-expanded="true" data-week="w10">
+          <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="week-card-body">
+      <ul class="task-list" aria-label="Week 10 tasks">
+        <li><label><input type="checkbox" class="task-check" data-parent="w10" aria-label="Complete Accounting Cycle 6"> Complete Accounting Cycle 6 <span class="due">due 8/4</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w10" aria-label="Complete Final Exam Concept Review"> Complete Final Exam Concept Review <span class="due">due 8/4</span></label></li>
+        <li><label><input type="checkbox" class="task-check" data-parent="w10" aria-label="Take Final Exam"> Take Final Exam <span class="due-exam">open 8/4&ndash;8/6, closes 5:00 PM</span></label></li>
+      </ul>
+    </div>
+
+    <div class="final-notice" role="note">
+      <strong>Reminder:</strong> The Final Exam closes at 5:00 PM on 8/6. Plan accordingly.
+    </div>
+
+  </main>
+</div>
+
+<script>
+  var STORE_KEY = 'acct_checklist_tjc_summer2026';
+
+  // ── Save/load ──
+  function saveState() {
+    var state = {};
+    document.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+      state[cb.id || cb.getAttribute('data-key')] = cb.checked;
+    });
+    // Save collapse state for each week
+    document.querySelectorAll('.week-card').forEach(function(card) {
+      state['collapse_' + card.dataset.id] = card.classList.contains('collapsed');
+    });
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch(e) {}
+  }
+
+  function loadState() {
+    var raw;
+    try { raw = localStorage.getItem(STORE_KEY); } catch(e) {}
+    if (!raw) return;
+    var state = {};
+    try { state = JSON.parse(raw); } catch(e) { return; }
+
+    document.querySelectorAll('input[type="checkbox"]').forEach(function(cb, i) {
+      var key = cb.id || cb.getAttribute('data-key');
+      if (!key) { key = 'cb_' + i; cb.setAttribute('data-key', key); }
+      if (state[key] !== undefined) {
+        cb.checked = state[key];
+        if (cb.checked) applyVisual(cb);
+      }
+    });
+
+    // Restore collapse state
+    document.querySelectorAll('.week-card').forEach(function(card) {
+      var key = 'collapse_' + card.dataset.id;
+      if (state[key] === true) {
+        collapseCard(card, false);
+      }
+    });
+
+    updateProgress();
+  }
+
+  // ── Accordion ──
+  function collapseCard(card, animate) {
+    card.classList.add('collapsed');
+    var btn = card.querySelector('.week-toggle');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+  }
+
+  function expandCard(card) {
+    card.classList.remove('collapsed');
+    var btn = card.querySelector('.week-toggle');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
+  }
+
+  function toggleCard(card) {
+    if (card.classList.contains('collapsed')) {
+      expandCard(card);
+    } else {
+      collapseCard(card, true);
+    }
+    saveState();
+  }
+
+  // Check if all tasks in a week are done and auto-collapse if so
+  function checkAutoCollapse(card) {
+    var tasks = card.querySelectorAll('.task-check');
+    if (tasks.length === 0) return;
+    var allDone = Array.from(tasks).every(function(t) { return t.checked; });
+    if (allDone) {
+      setTimeout(function() { collapseCard(card, true); saveState(); }, 600);
+    }
+  }
+
+  // ── Visual updates ──
+  function applyVisual(cb) {
+    if (cb.classList.contains('week-check')) {
+      var card = cb.closest('.week-card');
+      if (card) {
+        if (cb.checked) card.classList.add('completed');
+        else card.classList.remove('completed');
+      }
+    }
+    if (cb.classList.contains('task-check')) {
+      var lbl = cb.closest('label');
+      if (lbl) {
+        if (cb.checked) lbl.classList.add('done');
+        else lbl.classList.remove('done');
+      }
+      // Check auto-collapse after a task is checked
+      var card = cb.closest('.week-card');
+      if (card && cb.checked) checkAutoCollapse(card);
+    }
+  }
+
+  function updateProgress() {
+    var all = document.querySelectorAll('.week-check');
+    var checked = document.querySelectorAll('.week-check:checked').length;
+    var total = all.length;
+    var pct = total ? Math.round((checked / total) * 100) : 0;
+    document.getElementById('prog-label').textContent = checked + ' of ' + total + ' weeks checked';
+    document.getElementById('prog-pct').textContent = pct + '%';
+    document.getElementById('prog-fill').style.width = pct + '%';
+    document.getElementById('prog-bar').setAttribute('aria-valuenow', pct);
+  }
+
+  // ── Event listeners ──
+  document.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+    cb.addEventListener('change', function() {
+      applyVisual(this);
+      updateProgress();
+      saveState();
+    });
+  });
+
+  document.querySelectorAll('.week-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var card = this.closest('.week-card');
+      if (card) toggleCard(card);
+    });
+  });
+
+  // Also allow clicking the week title text to toggle
+  document.querySelectorAll('.week-title-text').forEach(function(title) {
+    title.style.cursor = 'pointer';
+    title.addEventListener('click', function() {
+      var card = this.closest('.week-card');
+      if (card) toggleCard(card);
+    });
+  });
+
+  function resetAll() {
+    if (!confirm('Reset all checkboxes? This cannot be undone.')) return;
+    document.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+      cb.checked = false;
+      applyVisual(cb);
+    });
+    // Re-expand all weeks on reset
+    document.querySelectorAll('.week-card').forEach(function(card) {
+      expandCard(card);
+    });
+    updateProgress();
+    saveState();
+  }
+
+  loadState();
+</script>
+</body>
+</html>
